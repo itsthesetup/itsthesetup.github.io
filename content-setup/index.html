@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Content Setup · It's the Setup</title>
+<meta name="description" content="Make Claude plan videos that sound like you. Ten minutes: copy, paste, fill four blanks.">
+<meta name="theme-color" content="#0E1845">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Content Setup">
+<meta property="og:description" content="Make Claude plan videos that sound like you. Copy, paste, fill four blanks.">
+<meta property="og:image" content="https://itsthesetup.github.io/content-setup/img/og.jpg">
+<meta property="og:url" content="https://itsthesetup.github.io/content-setup/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,800;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E1845;--panel:#18266A;--cream:#F4EEE2;--orange:#FF9A3C;--muted:#AEB8E6;--dim:#8F9AD0;--ink:#121A3A;--blank:#B4571A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:500;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:0 22px}
+b,strong{font-weight:800}
+.o{color:var(--orange)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;max-width:560px;margin:0 auto;font-size:13px;color:var(--dim)}
+.top a{color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(174,184,230,.35);padding-bottom:1px}
+.hero{position:relative;max-width:560px;margin:0 auto}
+.hero img{display:block;width:100%;height:auto;aspect-ratio:1200/890;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(to bottom,rgba(14,24,69,0),var(--bg) 92%)}
+.tag{font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--orange);text-transform:uppercase}
+h1{font-weight:900;font-size:clamp(46px,14.4vw,68px);line-height:1;letter-spacing:-.01em;margin:10px 0 18px}
+h2{font-weight:900;font-size:clamp(31px,9.2vw,44px);line-height:1.08;letter-spacing:-.005em;margin:10px 0 22px}
+.lead{font-weight:600;font-size:22px;line-height:1.28}
+.muted{color:var(--muted);font-size:16px;line-height:1.45}
+.small{color:var(--dim);font-size:13px;line-height:1.5}
+.cover{margin-top:-34px;position:relative;padding-bottom:8px}
+.cover .muted{margin-top:14px}
+section{padding:58px 0 6px}
+.label{font-weight:800;font-size:12px;letter-spacing:.13em;color:var(--orange);text-transform:uppercase;margin:0 0 9px}
+.label.q{color:var(--muted)}
+.card{background:var(--cream);color:var(--ink);border-radius:16px;padding:20px 22px;font-weight:600;font-size:21px;line-height:1.3;margin-bottom:22px}
+.card.long{font-size:18px}
+.p{font-size:18px;line-height:1.46;margin-top:8px}
+.p p+p{margin-top:16px}
+.step{background:var(--panel);border-radius:16px;padding:20px 20px 20px 18px;display:flex;gap:16px;margin-bottom:14px}
+.step .n{font-weight:900;font-size:36px;line-height:1;color:var(--orange);min-width:30px}
+.step h3{font-weight:600;font-size:20px;line-height:1.25;margin-bottom:6px}
+.block{background:var(--cream);color:var(--ink);border-radius:16px;overflow:hidden;margin-top:6px}
+.block pre{font-family:inherit;font-weight:500;font-size:15.5px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;padding:22px 22px 18px;-webkit-user-select:all;user-select:all}
+.block pre b{font-weight:800}
+.block pre i{font-style:italic;color:var(--blank)}
+.copy{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;border-top:1px solid rgba(18,26,58,.12);background:var(--orange);color:var(--ink);font:inherit;font-weight:800;font-size:17px;letter-spacing:.01em;padding:17px 18px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .18s ease,transform .12s ease}
+.copy:active{transform:scale(.985)}
+.copy.done{background:#FFBE82}
+.copy svg{width:19px;height:19px;flex:none}
+.hint{margin-top:12px}
+.blank{background:var(--panel);border-radius:16px;padding:18px 20px;margin-bottom:12px}
+.blank p{font-size:16.5px;line-height:1.42}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.ba img{display:block;width:100%;height:auto;border-radius:12px;aspect-ratio:760/560;object-fit:cover}
+.list{list-style:none;margin:18px 0 26px}
+.list li{position:relative;padding-left:26px;font-size:17.5px;line-height:1.4;margin-bottom:13px}
+.list li::before{content:"";position:absolute;left:2px;top:.52em;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+.full{background:var(--panel);border-radius:16px;padding:24px 22px}
+.full .lead{margin-bottom:10px}
+.dl{display:block;text-align:center;margin:34px 0 0;padding:15px 18px;border:1.5px solid rgba(174,184,230,.45);border-radius:14px;color:var(--cream);text-decoration:none;font-weight:600;font-size:16px}
+footer{padding:34px 0 54px}
+footer .small+.small{margin-top:10px}
+@media (min-width:600px){.hero img{border-radius:0 0 22px 22px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.copy{transition:none}}
+</style>
+</head>
+<body>
+<div class="top"><span>@itsthesetup.ai</span><a href="The-Content-Setup.pdf" download>Download PDF</a></div>
+
+<div class="hero"><img src="img/cover.jpg" width="1200" height="890" alt="A yellow sticky note with four ticked lines on a laptop in a food truck"></div>
+
+<main class="wrap">
+<div class="cover">
+  <div class="tag" style="font-size:11px;letter-spacing:.1em">Free guide · from the story “The Order”</div>
+  <h1>The Content Setup</h1>
+  <p class="lead">Make Claude plan videos that sound&nbsp;like&nbsp;<span class="o">you</span>.</p>
+  <p class="muted">Ten minutes. Copy, paste, fill four blanks.</p>
+</div>
+
+<section>
+  <div class="tag">01 · The problem</div>
+  <h2>He asked it what everyone asks.</h2>
+  <div class="label">What Marco typed</div>
+  <div class="card">Give me video ideas for my food truck.</div>
+  <div class="label">What he got</div>
+  <div class="card">1. Behind the scenes<br>2. Customer reviews<br>3. Daily specials</div>
+  <div class="p">
+    <p>Nothing is wrong with the AI.</p>
+    <p>It doesn’t know who you are, who stops at your window, or how you talk. So it gives you the ideas it gives everyone. Everyone posts them. Nobody watches.</p>
+    <p><b>Tell it once. It stops guessing.</b></p>
+  </div>
+</section>
+
+<section>
+  <div class="tag">02 · The setup</div>
+  <h2>Three moves. Ten minutes.</h2>
+  <div class="step"><div class="n">1</div><div><h3>Make a project.</h3><p class="muted">Open Claude, go to <b>Projects</b>, create a new one and name it after your business.</p></div></div>
+  <div class="step"><div class="n">2</div><div><h3>Paste the block.</h3><p class="muted">Copy the text below into the project’s <b>instructions</b>.</p></div></div>
+  <div class="step"><div class="n">3</div><div><h3>Fill four blanks.</h3><p class="muted">Once. After that, every chat in this project already knows you.</p></div></div>
+  <p class="small hint">No project feature on your plan? Paste the block as the first message of a new chat instead.</p>
+</section>
+
+<section id="copy">
+  <div class="tag">03 · Copy this</div>
+  <h2>Paste this into the project.</h2>
+  <div class="block">
+<pre id="setup">You help me plan short videos for my business. Read this before you suggest anything.
+
+<b>WHO I AM</b>
+<i>[Your name, what you do, where. One true detail only you have.]</i>
+
+<b>WHO WATCHES</b>
+<i>[One real person who should see my videos. Where they are and what is on their mind when they scroll.]</i>
+
+<b>HOW I TALK</b>
+<i>[Three things I would say out loud. Three things I would never say.]</i>
+
+<b>WHAT I CAN FILM</b>
+<i>[What I see every day that nobody else sees. What I will never film.]</i>
+
+<b>RULES</b>
+1. Ideas come from my real day, not from trends I would have to fake.
+2. Start every idea with the first 2 seconds: what we see and the first line.
+3. Write the lines the way I talk. Short. No slogans.
+4. Never invent numbers, reviews or results. If a fact is missing, ask me one question.
+5. Give me five ideas. For each: the moment, the first line, why someone stops.</pre>
+    <button class="copy" data-target="setup" data-label="Copy the setup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.2"/><path d="M5 15V6.2A2.2 2.2 0 0 1 7.2 4H15"/></svg><span>Copy the setup</span></button>
+  </div>
+  <p class="small hint">Then replace the four lines in brackets with your own answers.</p>
+</section>
+
+<section>
+  <div class="tag">04 · An example</div>
+  <h2>Marco’s four blanks.</h2>
+  <div class="blank"><div class="label">Who I am</div><p>Marco. One food truck, one corner, every burger made when you order it. My grandmother taught me the sauce.</p></div>
+  <div class="blank"><div class="label">Who watches</div><p>People who work around the corner. Lunch break, hungry, ten minutes to scroll before they go back.</p></div>
+  <div class="blank"><div class="label">How I talk</div><p>I say “grab one before it’s gone” and “you’ll be back”. I never say “gourmet”, “artisanal” or “elevated”.</p></div>
+  <div class="blank"><div class="label">What I can film</div><p>The grill a minute before the line. The first bite. The regulars I know by name.</p></div>
+  <p class="small hint">Notice what is missing: no adjectives about himself. Only facts and the way he speaks.</p>
+</section>
+
+<section>
+  <div class="tag">05 · The result</div>
+  <h2>Same AI. New ideas.</h2>
+  <div class="ba"><img src="img/before.jpg" width="760" height="560" loading="lazy" alt="The laptop with three generic video ideas on the screen"><img src="img/after.jpg" width="760" height="560" loading="lazy" alt="Marco filming a long line at his food truck in warm light"></div>
+  <div class="label q">Before</div>
+  <p class="muted" style="margin-bottom:24px">Behind the scenes. Customer reviews. Daily specials.</p>
+  <div class="label">After · one idea</div>
+  <div class="card long"><b>The moment:</b> the empty grill at 11:59, one minute before the line.<br><b>First line:</b> “One minute until this corner gets loud.”</div>
+  <div class="label">After · another</div>
+  <div class="card long"><b>The moment:</b> a regular walks up and says nothing.<br><b>First line:</b> “He hasn’t told me his order in a year.”</div>
+  <p class="small">Marco is a character from our story. The ideas are examples of what the setup produces.</p>
+</section>
+
+<section>
+  <div class="tag">06 · Use it</div>
+  <h2>Now ask for this week’s videos.</h2>
+  <p class="muted" style="margin-bottom:16px">The project already knows you. So the request can be short. This one works for Reels, TikTok and Shorts:</p>
+  <div class="block">
+<pre id="ask">Give me 5 video ideas for this week.
+This week I have: <i>[what is new, what is happening]</i>
+
+For each one:
+1. What we see in the first 2 seconds.
+2. The first line on screen, under 8 words.
+3. What I say to camera, in my words.
+
+Then pick the one I should post first and tell me why.</pre>
+    <button class="copy" data-target="ask" data-label="Copy the request"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.2"/><path d="M5 15V6.2A2.2 2.2 0 0 1 7.2 4H15"/></svg><span>Copy the request</span></button>
+  </div>
+  <div class="p" style="margin-top:30px">
+    <p><b>Two habits that keep it sharp</b></p>
+    <p>When an idea feels fake, say why. “I would never do that on camera.” It adjusts.</p>
+    <p>When a video works, paste it into the project as an example of your voice.</p>
+  </div>
+</section>
+
+<section>
+  <div class="tag">One setup of six</div>
+  <h2>This one plans your videos.</h2>
+  <p class="muted">The same idea, tell it once, works for the rest of your day:</p>
+  <ul class="list">
+    <li>Write ads that sound like you: <a href="../ad-setup/" style="color:inherit">The Ad Setup</a>, also free</li>
+    <li>Think a decision through with you, and argue the other side</li>
+    <li>Stay on one task until it is done</li>
+    <li>Remember your business between chats</li>
+    <li>Never make up a number</li>
+  </ul>
+  <div class="full">
+    <p class="lead">Want all six when they are ready?</p>
+    <p class="p">Send the word <b class="o">FULL</b> to <a href="https://www.instagram.com/itsthesetup.ai/" style="color:inherit">@itsthesetup.ai</a> on Instagram. You will be the first to get it.</p>
+  </div>
+  <a class="dl" href="The-Content-Setup.pdf" download>Download this guide as a PDF</a>
+</section>
+
+<footer>
+  <p class="small">@itsthesetup.ai · Same AI. Different results. It’s the setup.</p>
+  <p class="small">An independent page. Not affiliated with, or endorsed by, Anthropic. Claude is a trademark of Anthropic. Examples are illustrations, not a promise of results.</p>
+</footer>
+</main>
+
+<script>
+(function(){
+  function fallback(text){
+    var t=document.createElement('textarea');t.value=text;t.setAttribute('readonly','');
+    t.style.position='fixed';t.style.top='0';t.style.opacity='0';document.body.appendChild(t);
+    t.select();t.setSelectionRange(0,text.length);var ok=false;
+    try{ok=document.execCommand('copy')}catch(e){}
+    document.body.removeChild(t);return ok;
+  }
+  function selectEl(el){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  document.querySelectorAll('.copy').forEach(function(btn){
+    var span=btn.querySelector('span'),el=document.getElementById(btn.dataset.target),timer;
+    function show(ok){
+      btn.classList.toggle('done',ok);
+      span.textContent=ok?'Copied. Now paste it':'Text selected. Press and hold to copy';
+      if(!ok)selectEl(el);
+      clearTimeout(timer);timer=setTimeout(function(){btn.classList.remove('done');span.textContent=btn.dataset.label},2600);
+    }
+    btn.addEventListener('click',function(){
+      var text=el.innerText.replace(/ /g,' ').trim();
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(text).then(function(){show(true)},function(){show(fallback(text))});
+      }else{show(fallback(text))}
+    });
+  });
+})();
+</script>
+</body>
+</html>
